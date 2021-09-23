@@ -16,8 +16,10 @@
 		21FF9CF426FC50CB00F06293 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9CF326FC50CB00F06293 /* GameData.swift */; };
 		21FF9CF826FC55A000F06293 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9CF726FC55A000F06293 /* Game.swift */; };
 		21FF9CFA26FC55C700F06293 /* CellsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9CF926FC55C700F06293 /* CellsView.swift */; };
-		21FF9CFD26FC7D5300F06293 /* LargeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9CFC26FC7D5300F06293 /* LargeText.swift */; };
+		21FF9CFD26FC7D5300F06293 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9CFC26FC7D5300F06293 /* ViewExtensions.swift */; };
 		21FF9CFF26FC7D7300F06293 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9CFE26FC7D7300F06293 /* GameOverView.swift */; };
+		21FF9D0126FC958700F06293 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9D0026FC958700F06293 /* SettingsView.swift */; };
+		21FF9D0326FC97CB00F06293 /* Toggle+CustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9D0226FC97CB00F06293 /* Toggle+CustomStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +33,10 @@
 		21FF9CF326FC50CB00F06293 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		21FF9CF726FC55A000F06293 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		21FF9CF926FC55C700F06293 /* CellsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsView.swift; sourceTree = "<group>"; };
-		21FF9CFC26FC7D5300F06293 /* LargeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeText.swift; sourceTree = "<group>"; };
+		21FF9CFC26FC7D5300F06293 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		21FF9CFE26FC7D7300F06293 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		21FF9D0026FC958700F06293 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		21FF9D0226FC97CB00F06293 /* Toggle+CustomStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toggle+CustomStyle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 				21D57F3626FC4014005FFC86 /* GridView.swift */,
 				21FF9CF926FC55C700F06293 /* CellsView.swift */,
 				21FF9CFE26FC7D7300F06293 /* GameOverView.swift */,
+				21FF9D0026FC958700F06293 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,7 +112,8 @@
 		21FF9CFB26FC7D2800F06293 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				21FF9CFC26FC7D5300F06293 /* LargeText.swift */,
+				21FF9CFC26FC7D5300F06293 /* ViewExtensions.swift */,
+				21FF9D0226FC97CB00F06293 /* Toggle+CustomStyle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -182,11 +188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21FF9CFD26FC7D5300F06293 /* LargeText.swift in Sources */,
+				21FF9CFD26FC7D5300F06293 /* ViewExtensions.swift in Sources */,
 				21B1292026FC2F4F002904D4 /* GameView.swift in Sources */,
 				21FF9CFA26FC55C700F06293 /* CellsView.swift in Sources */,
+				21FF9D0326FC97CB00F06293 /* Toggle+CustomStyle.swift in Sources */,
 				21FF9CF826FC55A000F06293 /* Game.swift in Sources */,
 				21FF9CF426FC50CB00F06293 /* GameData.swift in Sources */,
+				21FF9D0126FC958700F06293 /* SettingsView.swift in Sources */,
 				21B1291E26FC2F4F002904D4 /* TicTacToeApp.swift in Sources */,
 				21D57F3726FC4014005FFC86 /* GridView.swift in Sources */,
 				21FF9CFF26FC7D7300F06293 /* GameOverView.swift in Sources */,
@@ -327,6 +335,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -357,6 +366,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

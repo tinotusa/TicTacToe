@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-struct SettingsView: View {
-    @EnvironmentObject var game: Game
-    
-    var body: some View {
-        Form {
-            Toggle(isOn: $game.opponentIsComputer) {
-                Text("Computer opponent")
-            }
-        }
-    }
-}
-
 struct GameView: View {
     @EnvironmentObject var game: Game
     @State private var showingSettings = false
@@ -42,7 +30,7 @@ struct GameView: View {
                 
                 VStack {
                     Spacer()
-                    Text("Current Player: \(game.currentPlayer)")
+                    Text(currentPlayerText)
                         .largeText()
                     
                     Spacer()
@@ -52,33 +40,48 @@ struct GameView: View {
                     Spacer()
                 }
                 
-                
-                HStack {
-                    Spacer()
-                    VStack {
-                        Button {
-                            showingSettings = true
-                        } label: {
-                            Image(systemName: "gearshape")
-                                .font(.largeTitle)
-                                .padding()
-                                .foregroundColor(Color("textColour"))
-                                .background(Color("cellColour"))
-                                .clipShape(Circle())
-                        }
-                        Spacer()
-                    }
-                }
+                settingsButton
                 
             }
-            .navigationBarHidden(true)
             .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarHidden(true)
         }
-        
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+private extension GameView {
+    var currentPlayerText: String {
+        var text = "Current player: "
+        if game.opponentIsComputer && game.currentPlayer == "O" {
+            text += "\(game.currentPlayer) (Computer)"
+        } else {
+            text += "\(game.currentPlayer)"
+        }
+        return text
+    }
+    
+    var settingsButton: some View {
+        HStack {
+            Spacer()
+            VStack {
+                Button {
+                    showingSettings = true
+                } label: {
+                    Image(systemName: "gearshape")
+                        .font(.largeTitle)
+                        .padding()
+                        .foregroundColor(Color("textColour"))
+                        .background(Color("cellColour"))
+                        .clipShape(Circle())
+                }
+                Spacer()
+            }
+        }
+        .padding(.horizontal)
+    }
+}
+
+struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             GameView()
