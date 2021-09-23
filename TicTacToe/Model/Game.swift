@@ -24,6 +24,11 @@ final class Game: ObservableObject {
         set { gameData.gameOver = newValue }
     }
     
+    var opponentIsComputer: Bool {
+        get { gameData.opponentIsComputer }
+        set { gameData.opponentIsComputer = newValue }
+    }
+    
     var winner: String {
         gameData.winner ?? "Draw"
     }
@@ -33,6 +38,10 @@ final class Game: ObservableObject {
     
     func updateCell(_ row: Int, _ column: Int) {
         gameData.updateCell(row, column, token: gameData.currentPlayer)
+    }
+    
+    func updateComputer() {
+        gameData.updateComputer()
     }
     
     func tokenAt(row: Int, column: Int) -> String {
@@ -49,9 +58,5 @@ final class Game: ObservableObject {
     
     func cellIsAvailable(_ row: Int, _ column: Int) -> Bool {
         gameData.cellIsAvailable(row, column)
-    }
-    
-    func checkWinner() {
-        gameData.checkWinner()
     }
 }

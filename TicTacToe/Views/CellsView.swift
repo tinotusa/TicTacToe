@@ -10,6 +10,7 @@ import SwiftUI
 struct CellsView: View {
     @EnvironmentObject var game: Game
     let size = 130.0
+    @State private var canSelect = true
     
     var body: some View {
         GridView { row, column in
@@ -17,10 +18,17 @@ struct CellsView: View {
                 .frame(width: size, height: size)
                 .onTapGesture {
                     game.updateCell(row, column)
-                    game.checkWinner()
                     game.switchPlayer()
+                    if game.opponentIsComputer {
+                        canSelect = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                            game.updateComputer()
+                            canSelect = true
+                        }
+                    }
                 }
                 .disabled(!game.cellIsAvailable(row, column))
+                .disabled(!canSelect)
         }
     }
 }

@@ -25,6 +25,5 @@ struct CellGridItem_Previews: PreviewProvider {
     static let size = 808.0
     static var previews: some View {
         CellGridItem()
-//            .previewLayout(.fixed(width: size, height: size)) // this crashed all previews (must restart to fix)
     }
 }

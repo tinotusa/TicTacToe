@@ -11,6 +11,7 @@ struct GameData {
     static let gridSize = width * height
     
     private(set) var currentPlayer = "X"
+    var opponentIsComputer = false
     private var tokenCount = 0
     var gameOver = false
     
@@ -21,7 +22,7 @@ struct GameData {
         let index = index(row, column)
         cells[index] = token
         tokenCount += 1
-        
+        checkWinner()
     }
     
     mutating func switchPlayer() {
@@ -44,7 +45,6 @@ struct GameData {
         currentPlayer = "X"
         tokenCount = 0
         gameOver = false
-        
     }
     
     mutating func checkWinner() {
@@ -65,7 +65,6 @@ struct GameData {
             }
             if foundWinner {
                 winner = currentPlayer
-                print("row winner \(currentPlayer)")
                 gameOver = true
                 return
             }
@@ -83,7 +82,6 @@ struct GameData {
             }
             if foundWinner {
                 winner = currentPlayer
-                print("column winner \(currentPlayer)")
                 gameOver = true
                 return
             }
@@ -102,7 +100,6 @@ struct GameData {
         if found {
             gameOver = true
             winner = currentPlayer
-            print("diagonal left to right winner: \(currentPlayer)")
             return
         }
 
@@ -123,5 +120,37 @@ struct GameData {
             winner = currentPlayer
             return
         }
+    }
+    
+    mutating func updateComputer() {
+        if !opponentIsComputer { return }
+        defer {
+            checkWinner()
+            switchPlayer()
+        }
+        let availableCells = getAvailableCells()
+        if availableCells.isEmpty {
+            gameOver = true
+            return
+        }
+        let randIndex = Int.random(in: 0 ..< availableCells.count)
+        let row = availableCells[randIndex][0]
+        let column = availableCells[randIndex][1]
+        let placeIndex = index(row, column)
+        cells[placeIndex] = currentPlayer
+        
+    }
+    
+    func getAvailableCells() -> [[Int]] {
+        var availableCells: [[Int]] = []
+        
+        for (index, cell) in cells.enumerated() {
+            let row = index / Self.width
+            let column = index % Self.height
+            if cell.isEmpty {
+                availableCells.append([row, column])
+            }
+        }
+        return availableCells
     }
 }

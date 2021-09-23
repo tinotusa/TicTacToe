@@ -2,4 +2,4 @@
 
 - [X] UI
 - [X] add game logic
-- [ ] add AI
+- [X] add AI (farmore A than I (random placement is used))

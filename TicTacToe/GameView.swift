@@ -6,56 +6,23 @@
 //
 
 import SwiftUI
-// TODO: add win logic
-// TODO: restart button
-// TODO: popup when no one wins
 
-struct LargeGreenText: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.largeTitle)
-            .foregroundColor(Color("textColour"))
-    }
-}
-
-extension View {
-    func largeGreenText() -> some View {
-        modifier(LargeGreenText())
-    }
-}
-
-struct GameOverView: View {
+struct SettingsView: View {
     @EnvironmentObject var game: Game
-    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        ZStack {
-            Color("background")
-                .ignoresSafeArea()
-            
-            VStack {
-                Text("Game over")
-                    .largeGreenText()
-                
-                Spacer()
-                Text("The winner: \(game.winner)")
-                    .largeGreenText()
-                Button("Play again") {
-                    game.reset()
-                    presentationMode.wrappedValue.dismiss()
-                }
-                .padding()
-                .background(Color("cellColour"))
-                Spacer()
+        Form {
+            Toggle(isOn: $game.opponentIsComputer) {
+                Text("Computer opponent")
             }
         }
-        .navigationBarHidden(true)
     }
 }
 
 struct GameView: View {
     @EnvironmentObject var game: Game
-
+    @State private var showingSettings = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -66,16 +33,48 @@ struct GameView: View {
                     EmptyView()
                 }
                 
+                NavigationLink(destination: SettingsView(), isActive: $showingSettings) {
+                    EmptyView()
+                }
+//                .onDisappear {
+//                    game.reset()
+//                }
+                
                 VStack {
-                    Text("Current Player: \(game.currentPlayer)")
-                        .largeGreenText()
                     Spacer()
+                    Text("Current Player: \(game.currentPlayer)")
+                        .largeText()
+                    
+                    Spacer()
+                    
                     CellsView()
+                    
                     Spacer()
                 }
+                
+                
+                HStack {
+                    Spacer()
+                    VStack {
+                        Button {
+                            showingSettings = true
+                        } label: {
+                            Image(systemName: "gearshape")
+                                .font(.largeTitle)
+                                .padding()
+                                .foregroundColor(Color("textColour"))
+                                .background(Color("cellColour"))
+                                .clipShape(Circle())
+                        }
+                        Spacer()
+                    }
+                }
+                
             }
+            .navigationBarHidden(true)
+            .navigationViewStyle(StackNavigationViewStyle())
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        
     }
 }
 
