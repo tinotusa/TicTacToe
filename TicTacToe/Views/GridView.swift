@@ -23,9 +23,9 @@ struct GridView<Content>: View where Content: View {
     
     var body: some View {
         HStack {
-            ForEach(0 ..< rows) { rowIndex in
+            ForEach(0 ..< columns) { columnIndex in
                 VStack {
-                    ForEach(0 ..< columns) { columnIndex in
+                    ForEach(0 ..< rows) { rowIndex in
                         content(rowIndex, columnIndex)
                     }
                 }

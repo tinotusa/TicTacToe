@@ -11,8 +11,11 @@
 		21B1292026FC2F4F002904D4 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1291F26FC2F4F002904D4 /* GameView.swift */; };
 		21B1292226FC2F51002904D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B1292126FC2F51002904D4 /* Assets.xcassets */; };
 		21B1292526FC2F51002904D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B1292426FC2F51002904D4 /* Preview Assets.xcassets */; };
-		21D57F3526FC3FCB005FFC86 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D57F3426FC3FCB005FFC86 /* CellView.swift */; };
+		21D57F3526FC3FCB005FFC86 /* CellGridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D57F3426FC3FCB005FFC86 /* CellGridItem.swift */; };
 		21D57F3726FC4014005FFC86 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D57F3626FC4014005FFC86 /* GridView.swift */; };
+		21FF9CF426FC50CB00F06293 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9CF326FC50CB00F06293 /* GameData.swift */; };
+		21FF9CF826FC55A000F06293 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9CF726FC55A000F06293 /* Game.swift */; };
+		21FF9CFA26FC55C700F06293 /* CellsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF9CF926FC55C700F06293 /* CellsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +24,11 @@
 		21B1291F26FC2F4F002904D4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		21B1292126FC2F51002904D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21B1292426FC2F51002904D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		21D57F3426FC3FCB005FFC86 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		21D57F3426FC3FCB005FFC86 /* CellGridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellGridItem.swift; sourceTree = "<group>"; };
 		21D57F3626FC4014005FFC86 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		21FF9CF326FC50CB00F06293 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		21FF9CF726FC55A000F06293 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		21FF9CF926FC55C700F06293 /* CellsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			children = (
 				21B1291D26FC2F4F002904D4 /* TicTacToeApp.swift */,
 				21B1291F26FC2F4F002904D4 /* GameView.swift */,
+				21FF9CF226FC50BC00F06293 /* Model */,
 				21D57F3326FC3FBF005FFC86 /* Views */,
 				21B1292126FC2F51002904D4 /* Assets.xcassets */,
 				21B1292326FC2F51002904D4 /* Preview Content */,
@@ -75,10 +82,20 @@
 		21D57F3326FC3FBF005FFC86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				21D57F3426FC3FCB005FFC86 /* CellView.swift */,
+				21D57F3426FC3FCB005FFC86 /* CellGridItem.swift */,
 				21D57F3626FC4014005FFC86 /* GridView.swift */,
+				21FF9CF926FC55C700F06293 /* CellsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		21FF9CF226FC50BC00F06293 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21FF9CF326FC50CB00F06293 /* GameData.swift */,
+				21FF9CF726FC55A000F06293 /* Game.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +169,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				21B1292026FC2F4F002904D4 /* GameView.swift in Sources */,
+				21FF9CFA26FC55C700F06293 /* CellsView.swift in Sources */,
+				21FF9CF826FC55A000F06293 /* Game.swift in Sources */,
+				21FF9CF426FC50CB00F06293 /* GameData.swift in Sources */,
 				21B1291E26FC2F4F002904D4 /* TicTacToeApp.swift in Sources */,
 				21D57F3726FC4014005FFC86 /* GridView.swift in Sources */,
-				21D57F3526FC3FCB005FFC86 /* CellView.swift in Sources */,
+				21D57F3526FC3FCB005FFC86 /* CellGridItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

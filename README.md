@@ -1,5 +1,5 @@
 # Tic tac toe
 
-- [ ] UI
-- [ ] add game logic
+- [X] UI
+- [X] add game logic
 - [ ] add AI
