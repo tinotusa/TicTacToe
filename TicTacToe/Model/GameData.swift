@@ -10,11 +10,16 @@ struct GameData {
     static let height = 3
     static let gridSize = width * height
     
-    private(set) var currentPlayer = "X"
-    var opponentIsComputer = false
     private var tokenCount = 0
-    var gameOver = false
+    private(set) var currentPlayer = "X"
     
+    var opponentIsComputer = false {
+        didSet {
+            reset()
+        }
+    }
+    
+    var gameOver = false
     var cells: [String] = Array(repeating: "", count: gridSize)
     var winner: String? = nil
     
@@ -53,6 +58,7 @@ struct GameData {
                 gameOver = true
             }
         }
+        
         // check rows
         for row in 0 ..< Self.width {
             var foundWinner = true
@@ -87,8 +93,7 @@ struct GameData {
             }
         }
         
-        // check diagonals
-        // left to right "\"
+        // check diagonals - left to right "\"
         var found = true
         for row in 0 ..< Self.width {
             let index = index(row, row)

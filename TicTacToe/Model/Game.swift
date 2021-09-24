@@ -32,6 +32,7 @@ final class Game: ObservableObject {
     var winner: String {
         gameData.winner ?? "Draw"
     }
+    
     func reset() {
         gameData.reset()
     }

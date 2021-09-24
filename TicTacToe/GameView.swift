@@ -24,14 +24,13 @@ struct GameView: View {
                 NavigationLink(destination: SettingsView(), isActive: $showingSettings) {
                     EmptyView()
                 }
-//                .onDisappear {
-//                    game.reset()
-//                }
                 
                 VStack {
                     Spacer()
-                    Text(currentPlayerText)
-                        .largeText()
+                    Group {
+                        Text(currentPlayerText)
+                    }
+                    .largeText()
                     
                     Spacer()
                     

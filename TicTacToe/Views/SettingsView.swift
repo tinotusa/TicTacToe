@@ -28,7 +28,6 @@ struct SettingsView: View {
                         Spacer()
                         Group {
                             computerSetting
-                            Text("something selse")
                         }
                         .settingsBorder()
                     }
@@ -39,6 +38,7 @@ struct SettingsView: View {
         }
         .navigationBarHidden(true)
     }
+    @State private var test = 0
 }
 
 private extension SettingsView {
